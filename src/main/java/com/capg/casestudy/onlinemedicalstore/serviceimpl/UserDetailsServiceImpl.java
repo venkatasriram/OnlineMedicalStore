@@ -4,10 +4,10 @@ import com.capg.casestudy.onlinemedicalstore.entity.UserDetails;
 import com.capg.casestudy.onlinemedicalstore.exception.UserNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.repository.UserDetailsRepository;
 import com.capg.casestudy.onlinemedicalstore.service.UserDetailsService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -51,7 +51,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             user.get().setRole(userDetails.getRole());
         }
         if(userDetails.getMobile()!=null && userDetails.getMobile().length()>=0 && !Objects.equals(user.get().getMobile(),userDetails.getMobile())){
-            user.get().setUserName(userDetails.getMobile());
+            user.get().setMobile(userDetails.getMobile());
         }
         if(userDetails.getAddress()!=null && userDetails.getAddress().length()>=0 && !Objects.equals(user.get().getAddress(),userDetails.getAddress())){
             user.get().setAddress(userDetails.getAddress());

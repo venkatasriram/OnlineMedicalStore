@@ -4,10 +4,10 @@ import com.capg.casestudy.onlinemedicalstore.entity.Payment;
 import com.capg.casestudy.onlinemedicalstore.exception.PaymentNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.repository.PaymentRepository;
 import com.capg.casestudy.onlinemedicalstore.service.PaymentService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 

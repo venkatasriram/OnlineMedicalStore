@@ -1,15 +1,14 @@
 package com.capg.casestudy.onlinemedicalstore.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
@@ -25,7 +24,7 @@ public class Product {
     private String mfgDate;
     private Double price;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="supplier_id")
     private Supplier supplier;
 }

@@ -1,7 +1,7 @@
 package com.capg.casestudy.onlinemedicalstore.controller;
 
 import com.capg.casestudy.onlinemedicalstore.entity.UserDetails;
-import com.capg.casestudy.onlinemedicalstore.serviceimpl.UserDetailsServiceImpl;
+import com.capg.casestudy.onlinemedicalstore.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping(path = "api/user/")
 public class UserDetailsController {
     @Autowired
-    private UserDetailsServiceImpl userService;
+    private UserDetailsService userService;
 
     @PostMapping("addUser/")
     public UserDetails addUser(@RequestBody UserDetails user){

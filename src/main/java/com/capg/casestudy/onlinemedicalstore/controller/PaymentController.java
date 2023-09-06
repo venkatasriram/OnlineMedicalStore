@@ -1,7 +1,7 @@
 package com.capg.casestudy.onlinemedicalstore.controller;
 
 import com.capg.casestudy.onlinemedicalstore.entity.Payment;
-import com.capg.casestudy.onlinemedicalstore.serviceimpl.PaymentServiceImpl;
+import com.capg.casestudy.onlinemedicalstore.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/payment/")
 public class PaymentController {
     @Autowired
-    private PaymentServiceImpl paymentService;
+    private PaymentService paymentService;
     @PostMapping("addPayment/")
     public Payment addPayment(@RequestBody Payment payment){
         return paymentService.addPayment(payment);

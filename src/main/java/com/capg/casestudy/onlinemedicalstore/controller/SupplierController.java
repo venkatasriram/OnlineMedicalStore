@@ -1,7 +1,7 @@
 package com.capg.casestudy.onlinemedicalstore.controller;
 
 import com.capg.casestudy.onlinemedicalstore.entity.Supplier;
-import com.capg.casestudy.onlinemedicalstore.serviceimpl.SupplierServiceImpl;
+import com.capg.casestudy.onlinemedicalstore.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("api/supplier/")
 public class SupplierController {
     @Autowired
-    private SupplierServiceImpl supplierService;
+    private SupplierService supplierService;
     @PostMapping("addSupplier/")
     public Supplier addSupplier(@RequestBody Supplier supplier){
         return supplierService.addSupplier(supplier);

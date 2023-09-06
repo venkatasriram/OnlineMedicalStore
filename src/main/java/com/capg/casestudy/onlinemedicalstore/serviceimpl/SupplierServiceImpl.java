@@ -4,10 +4,10 @@ import com.capg.casestudy.onlinemedicalstore.entity.Supplier;
 import com.capg.casestudy.onlinemedicalstore.exception.SupplierNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.repository.SupplierRepository;
 import com.capg.casestudy.onlinemedicalstore.service.SupplierService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public class SupplierServiceImpl implements SupplierService {
         if (supplier.isEmpty()){
             throw new SupplierNotFoundException("supplier not found");
         }
-        supplierRepository.delete(supplier.get());
+        supplierRepository.deleteById(id);
     }
     @Override
     public List<Supplier> showAllSuppliers() {
