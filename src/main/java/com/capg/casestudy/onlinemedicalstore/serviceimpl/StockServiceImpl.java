@@ -2,9 +2,7 @@ package com.capg.casestudy.onlinemedicalstore.serviceimpl;
 
 import com.capg.casestudy.onlinemedicalstore.entity.Product;
 import com.capg.casestudy.onlinemedicalstore.entity.Stock;
-import com.capg.casestudy.onlinemedicalstore.entity.UserDetails;
 import com.capg.casestudy.onlinemedicalstore.exception.StockNotFoundException;
-import com.capg.casestudy.onlinemedicalstore.exception.UserNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.repository.ProductRepository;
 import com.capg.casestudy.onlinemedicalstore.repository.StockRepository;
 import com.capg.casestudy.onlinemedicalstore.service.StockService;
@@ -45,12 +43,10 @@ public class StockServiceImpl implements StockService {
         if(stockDetails.isEmpty()){
             throw new StockNotFoundException("stock not found");
         }
-        if(stock.getIsInStock()!=null && !Objects.equals(stock.getIsInStock(),stockDetails.get().getIsInStock())){
-            stockDetails.get().setIsInStock(stock.getQuantity()>0);
-        }
-        if(stock.getQuantity()!=0 && !Objects.equals(stock.getQuantity(),stockDetails.get().getQuantity())){
+        if(!Objects.equals(stock.getQuantity(),stockDetails.get().getQuantity())){
             stockDetails.get().setQuantity(stock.getQuantity());
         }
+        stockDetails.get().setIsInStock(stock.getQuantity()>0);
         return stockDetails.get();
     }
 

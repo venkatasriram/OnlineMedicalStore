@@ -23,9 +23,9 @@ public class OrderDetails {
     private Date orderDate;
     private String address;
     private String phNumber;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
-    private List<Product> product=new ArrayList<>();
+    private List<Product> products=new ArrayList<>();
     @OneToOne
     @JoinColumn(name = "payment_id")
     private Payment payment;

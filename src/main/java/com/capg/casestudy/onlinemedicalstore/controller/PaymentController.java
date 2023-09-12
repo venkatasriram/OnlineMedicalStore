@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.*;
 public class PaymentController {
     @Autowired
     private PaymentService paymentService;
-    @PostMapping("addPayment/")
+    @PostMapping("add-payment/")
     public Payment addPayment(@RequestBody Payment payment){
         return paymentService.addPayment(payment);
     }
-    @GetMapping("viewPayment/")
+    @GetMapping("view-payment/")
     public Payment viewPayment(@RequestParam("paymentId") int id){
         return paymentService.viewPayment(id);
     }
-    @DeleteMapping("deletePayment/")
+    @DeleteMapping("delete-payment/")
     public void deletePayment(@RequestParam("paymentId") int id){
         paymentService.deletePayment(id);
     }

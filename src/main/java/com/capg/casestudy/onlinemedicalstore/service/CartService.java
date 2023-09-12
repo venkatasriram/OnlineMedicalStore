@@ -5,13 +5,13 @@ import java.util.List;
 
 
 import com.capg.casestudy.onlinemedicalstore.entity.Cart;
+import com.capg.casestudy.onlinemedicalstore.entity.UserDetails;
 
- 
 
 public interface CartService {
-    public Cart addCart(Cart cart);
-    public Cart updateCart(Cart cart);
-    public void removeCart(int id);
-    public List<Cart> showAllCarts();
-    public Cart showCart(int id);
+    Cart addToCart(int productId,int userId);
+    Cart initialCart(UserDetails userDetails);
+    Cart deleteProductFromCart(int userId,int productId);
+    List<Cart> viewAllCart();
+    Cart viewCartByUserId(int userId);
 }

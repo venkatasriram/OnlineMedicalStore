@@ -14,23 +14,23 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping("addProduct/")
+    @PostMapping("add-product/")
     public Product addProduct(ProductDTO productDTO){
         return productService.addProduct(productDTO);
     }
-    @GetMapping("viewProduct/")
+    @GetMapping("view-product/")
     public Product viewProductById(@RequestParam("productId") int id){
         return productService.viewProductById(id);
     }
-    @GetMapping("viewAllProducts/")
+    @GetMapping("viewAll-products/")
     public List<Product> viewAllProducts(){
         return productService.viewAllProducts();
     }
-    @DeleteMapping("deleteProduct/")
+    @DeleteMapping("delete-product/")
     public void removeProduct(@RequestParam("productId") int id){
         productService.removeProduct(id);
     }
-    @PutMapping("updateProduct/")
+    @PutMapping("update-product/")
     public Product updateProduct(@RequestBody Product product){
         return productService.updateProduct(product);
     }

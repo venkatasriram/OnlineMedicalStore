@@ -3,6 +3,7 @@ package com.capg.casestudy.onlinemedicalstore.serviceimpl;
 import com.capg.casestudy.onlinemedicalstore.entity.UserDetails;
 import com.capg.casestudy.onlinemedicalstore.exception.UserNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.repository.UserDetailsRepository;
+import com.capg.casestudy.onlinemedicalstore.service.CartService;
 import com.capg.casestudy.onlinemedicalstore.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserDetailsRepository userDetailsRepository;
+    @Autowired
+    private CartService cartService;
     @Override
     public UserDetails loginUser(String username, String password) {
         Optional<UserDetails> user=userDetailsRepository.findUser(username);
@@ -32,7 +35,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails addUser(UserDetails user) {
-        return userDetailsRepository.save(user);
+        UserDetails savedUser = userDetailsRepository.save(user);
+        cartService.initialCart(savedUser);
+        return savedUser;
     }
 
     @Override

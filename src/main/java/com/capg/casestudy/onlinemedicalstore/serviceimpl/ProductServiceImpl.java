@@ -6,7 +6,6 @@ import com.capg.casestudy.onlinemedicalstore.entity.Supplier;
 import com.capg.casestudy.onlinemedicalstore.exception.PaymentNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.exception.ProductNotFoundException;
 import com.capg.casestudy.onlinemedicalstore.repository.ProductRepository;
-import com.capg.casestudy.onlinemedicalstore.repository.StockRepository;
 import com.capg.casestudy.onlinemedicalstore.repository.SupplierRepository;
 import com.capg.casestudy.onlinemedicalstore.service.ProductService;
 import com.capg.casestudy.onlinemedicalstore.service.StockService;

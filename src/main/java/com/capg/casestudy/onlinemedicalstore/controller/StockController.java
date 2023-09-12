@@ -2,11 +2,9 @@ package com.capg.casestudy.onlinemedicalstore.controller;
 
 import com.capg.casestudy.onlinemedicalstore.entity.Stock;
 import com.capg.casestudy.onlinemedicalstore.service.StockService;
-import com.capg.casestudy.onlinemedicalstore.serviceimpl.StockServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @RestController

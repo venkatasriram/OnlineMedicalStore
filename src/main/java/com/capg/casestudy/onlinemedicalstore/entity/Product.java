@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 
+import java.util.List;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -22,9 +24,16 @@ public class Product {
     private String description;
     private String expDate;
     private String mfgDate;
-    private Double price;
+    private double price;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="supplier_id")
     private Supplier supplier;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "products")
+    private List<Cart> cart;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "products")
+    private List<OrderDetails> orderDetails;
 }
